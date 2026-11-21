@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChronoLedger Vault | Cryptographic Notary & Audit Vault</title>
+  <link rel="stylesheet" href="/css/vault.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='2'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="vault-header">
+    <div class="container header-inner">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">ChronoLedger</span>
+          <span class="brand-badge">Vault v1.0</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item active"><a href="/">Vault Notary</a></li>
+          <li class="nav-item"><a href="/verify">Instant Verify</a></li>
+          <li class="nav-item"><a href="/audit">Audit & Ledger</a></li>
+        </ul>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="network-pill" id="networkPill">
+          <span class="pulse-dot" id="networkPulseDot"></span>
+          <span id="networkStatusText">HEIGHT: #1 (SYNCED)</span>
+        </div>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container" style="flex: 1; padding-top: 1rem; padding-bottom: 3rem;">
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>🔒 RFC 6962 MERKLE PROOFS</span>
+          <span>&bull;</span>
+          <span>ED25519 NOTARY SIGNATURES</span>
+        </div>
+        <h1 class="hero-title">Cryptographic Notary & Audit Vault</h1>
+        <p class="hero-desc">
+          Anchor intellectual property, legal agreements, and corporate audits into an immutable Merkle tree ledger. Prove existence, integrity, and authenticity without disclosing file contents.
+        </p>
+      </div>
+    </section>
+
+    <!-- Real-time Stats Grid -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Ledger Blocks</div>
+        <div class="stat-value" id="statTotalBlocks">1</div>
+        <div class="stat-subtext">Cryptographic block height</div>
+      </div>
+      <div class="stat-card emerald">
+        <div class="stat-label">Notarized Records</div>
+        <div class="stat-value" id="statTotalDocs">1</div>
+        <div class="stat-subtext">Immutable document proofs</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-label">Merkle Tree Engine</div>
+        <div class="stat-value" style="font-size: 1.3rem;">RFC 6962</div>
+        <div class="stat-subtext">Double-preimage resistant</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-label">Notary Authority</div>
+        <div class="stat-value" style="font-size: 1.3rem;">Ed25519</div>
+        <div class="stat-subtext">Asymmetric digital signer</div>
+      </div>
+    </section>
+
+    <!-- Main Vault Workspace -->
+    <div class="vault-workspace">
+
+      <!-- Left Column: Notarization Studio -->
+      <section>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Document Notarization Studio
+            </h2>
+          </div>
+
+          <!-- Privacy Mode Toggle -->
+          <div class="mode-toggle-card">
+            <div class="mode-toggle-desc">
+              <h4>Zero-Knowledge Privacy Mode</h4>
+              <p>Hashes file inside your browser via WebCrypto. Secret contents never leave your machine.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="zkModeToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <!-- Dropzone -->
+          <div class="dropzone-container" id="notaryDropzone">
+            <input type="file" id="fileInput" class="file-input-hidden">
+            <div class="dropzone-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="dropzone-title">Drop your document or file here</div>
+            <div class="dropzone-hint">PDF, DOCX, ZIP, source code, images, audio, or datasets (Up to 500MB client-side)</div>
+
+            <!-- File Selected Preview Strip -->
+            <div id="filePreviewStrip" class="file-preview-strip" style="display: none;">
+              <div class="file-preview-info">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                <div>
+                  <div id="previewFileName" class="file-name">filename.pdf</div>
+                  <div id="previewFileSize" class="file-size">0 KB</div>
+                </div>
+              </div>
+              <div id="previewSha256" class="file-size mono" style="color: var(--accent-cyan);">Computing hash...</div>
+            </div>
+          </div>
+
+          <!-- Metadata & Notary Form -->
+          <form id="notaryForm" style="margin-top: 1.5rem;">
+            <div class="form-group">
+              <label class="form-label" for="docTitle">Document Title / Record Identifier</label>
+              <input type="text" id="docTitle" class="form-control" placeholder="e.g. Master Service Agreement 2026 - Acme Corp">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="docAuthor">Signer / Author Name</label>
+                <input type="text" id="docAuthor" class="form-control" placeholder="e.g. Alice Johnson (Legal Director)">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="docNotes">Public Notary Notes</label>
+                <input type="text" id="docNotes" class="form-control" placeholder="e.g. Executed in Singapore jurisdiction">
+              </div>
+            </div>
+
+            <!-- Alternative manual text input -->
+            <div class="form-group">
+              <label class="form-label" for="manualTextInput">Or Notarize Raw Text / Signature Manifest (Optional)</label>
+              <textarea id="manualTextInput" class="form-control mono" placeholder="Paste cryptographic public keys, JSON manifests, or textual agreements here..."></textarea>
+            </div>
+
+            <button type="submit" id="notarizeSubmitBtn" class="btn btn-primary btn-block">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              Notarize on ChronoLedger
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Right Column: Live Merkle Tree Visualizer -->
+      <section>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="m7.5 16.5 3-8.5"/><path d="m16.5 16.5-3-8.5"/></svg>
+                Active Block Merkle Tree
+              </h2>
+              <div style="margin-top: 0.35rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="badge-tag pending" id="activeBlockBadge">BLOCK #1 (ACTIVE)</span>
+                <span class="hash-badge" id="activeBlockRootBadge" title="Current Merkle Root">Root Hash Loading...</span>
+              </div>
+            </div>
+            <button id="sealActiveBlockBtn" class="btn btn-emerald btn-sm" title="Finalize and seal current block into blockchain">
+              Seal Current Block
+            </button>
+          </div>
+
+          <!-- Merkle Tree Canvas -->
+          <div class="canvas-wrapper">
+            <div class="canvas-toolbar">
+              <button class="canvas-btn" id="zoomInBtn" title="Zoom In">+</button>
+              <button class="canvas-btn" id="zoomOutBtn" title="Zoom Out">&minus;</button>
+              <button class="canvas-btn" id="resetViewBtn" title="Reset View">&#x21bb;</button>
+            </div>
+
+            <canvas id="merkleTreeCanvas"></canvas>
+
+            <div class="canvas-legend">
+              <div class="legend-item"><span class="legend-dot root"></span> Root</div>
+              <div class="legend-item"><span class="legend-dot interior"></span> Interior</div>
+              <div class="legend-item"><span class="legend-dot leaf"></span> Leaf</div>
+              <div class="legend-item"><span class="legend-dot active"></span> Proof Path</div>
+            </div>
+          </div>
+
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.85rem;">
+            Click on any leaf node to highlight its cryptographic inclusion trajectory up to the block root. Drag to pan, scroll to zoom.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bottom Full-Width: Recent Documents Ledger -->
+    <section class="card" style="margin-top: 2rem;">
+      <div class="card-header">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Recent Notarized Documents
+        </h2>
+        <span class="badge-tag sealed">IMMUTABLY ANCHORED</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th>Document Asset</th>
+              <th>SHA-256 Digest</th>
+              <th>Block Height</th>
+              <th>Timestamp</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recentDocsTableBody">
+            <tr>
+              <td colspan="5" class="text-center" style="padding: 2rem; color: var(--text-muted);">
+                Loading ledger records...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="vault-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ChronoLedger Vault</strong> &mdash; Production Cryptographic Time-Stamping & Audit Authority.
+      </div>
+      <div>
+        Powered by Node.js 22 Native Crypto, RFC 6962 Merkle Proofs & Ed25519 Signatures.
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Client Scripts -->
+  <script type="module" src="/js/vault-app.js"></script>
+</body>
+</html>

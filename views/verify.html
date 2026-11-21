@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant Verification Portal | ChronoLedger Vault</title>
+  <link rel="stylesheet" href="/css/vault.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ffaa' stroke-width='2'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='m9 12 2 2 4-4'/></svg>">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="vault-header">
+    <div class="container header-inner">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">ChronoLedger</span>
+          <span class="brand-badge">Verification</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item"><a href="/">Vault Notary</a></li>
+          <li class="nav-item active"><a href="/verify">Instant Verify</a></li>
+          <li class="nav-item"><a href="/audit">Audit & Ledger</a></li>
+        </ul>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="network-pill" id="networkPill">
+          <span class="pulse-dot" id="networkPulseDot"></span>
+          <span id="networkStatusText">VAULT ONLINE</span>
+        </div>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container" style="flex: 1; padding-top: 1rem; padding-bottom: 3rem;">
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>⚡ ZERO-KNOWLEDGE PROOFS</span>
+          <span>&bull;</span>
+          <span>INSTANT THIRD-PARTY VERIFICATION</span>
+        </div>
+        <h1 class="hero-title">Public Cryptographic Verification Portal</h1>
+        <p class="hero-desc">
+          Drop any file or signed certificate below. We compute its SHA-256 fingerprint in your browser and verify its mathematical Merkle inclusion proof and Ed25519 digital signature against the ChronoLedger ledger.
+        </p>
+      </div>
+    </section>
+
+    <!-- Verification Input Grid -->
+    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; margin-bottom: 2rem;">
+
+      <!-- Mode 1: Drag-and-drop File or Certificate -->
+      <section class="card" style="margin-bottom: 0;">
+        <div class="card-header">
+          <h2 class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Drop File to Verify Authenticity
+          </h2>
+        </div>
+
+        <div class="dropzone-container" id="verifyDropzone">
+          <input type="file" id="verifyFileInput" class="file-input-hidden">
+          <div class="dropzone-icon" style="color: var(--accent-emerald); border-color: rgba(0, 255, 170, 0.3); background: rgba(0, 255, 170, 0.08);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div class="dropzone-title">Drop your original file or .json certificate</div>
+          <div class="dropzone-hint">Browser computes SHA-256 locally. Secret file contents are never transmitted.</div>
+        </div>
+
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">
+          Supports contracts, legal documents, binaries, images, source archives, or JSON notary certificates.
+        </p>
+      </section>
+
+      <!-- Mode 2 & 3: Direct Hash or Certificate Upload -->
+      <section class="card" style="margin-bottom: 0;">
+        <div class="card-header">
+          <h2 class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Manual Hash / Certificate Input
+          </h2>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="manualHashInput">64-Character SHA-256 Hex Hash</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="manualHashInput" class="form-control mono" placeholder="e.g. 7cd0ce5961c286d0c0824863ff7f5e255c780c25...">
+            <button id="verifyHashBtn" class="btn btn-primary" style="white-space: nowrap;">Verify</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+          <label class="form-label">Or Upload Notary Certificate (.json)</label>
+          <input type="file" id="certFileInput" accept=".json" class="form-control" style="cursor: pointer;">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">
+            Verifies official ChronoLedger digital certificate signature & Merkle proof offline or online.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Live Verification Result Container -->
+    <div id="verifyResultContainer" style="display: none; margin-bottom: 2.5rem;"></div>
+
+    <!-- Cryptographic Architecture Explanation Card -->
+    <section class="card" style="margin-bottom: 2.5rem;">
+      <div class="card-header">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          How Mathematical Proof Verification Works
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; font-size: 0.88rem;">
+        <div>
+          <div class="badge-tag" style="background: rgba(0, 240, 255, 0.1); color: var(--accent-cyan); margin-bottom: 0.5rem;">STEP 1: HASHING</div>
+          <p style="color: var(--text-secondary);">
+            The document is digested into a 256-bit cryptographic fingerprint using SHA-256. If a single bit is changed, the digest shifts completely (Avalanche effect).
+          </p>
+        </div>
+        <div>
+          <div class="badge-tag" style="background: rgba(0, 255, 170, 0.1); color: var(--accent-emerald); margin-bottom: 0.5rem;">STEP 2: RFC 6962 LEAF</div>
+          <p style="color: var(--text-secondary);">
+            A prefix byte (<code>0x00</code>) is concatenated before the hash to prevent second-preimage collision between leaf nodes and internal Merkle branches.
+          </p>
+        </div>
+        <div>
+          <div class="badge-tag gold" style="margin-bottom: 0.5rem;">STEP 3: MERKLE TREE TRAVERSAL</div>
+          <p style="color: var(--text-secondary);">
+            The vault calculates pairwise interior hashes (<code>0x01 || left || right</code>) with sibling hashes until reaching the Block Merkle Root in $O(\log_2 N)$ steps.
+          </p>
+        </div>
+        <div>
+          <div class="badge-tag purple" style="margin-bottom: 0.5rem;">STEP 4: ED25519 SIGNATURE</div>
+          <p style="color: var(--text-secondary);">
+            The Notary Authority cryptographically signs the block root and timestamp with its private key, verifiable with the public notary key.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verification Audit Activity History -->
+    <section class="card">
+      <div class="card-header">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Verification Audit Trail
+        </h2>
+        <span class="badge-tag sealed">COMPLIANCE LOGGED</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Queried Hash</th>
+              <th>Matched Document</th>
+              <th>Timestamp & Latency</th>
+            </tr>
+          </thead>
+          <tbody id="verifyHistoryBody">
+            <tr>
+              <td colspan="4" class="text-center" style="padding: 1.5rem; color: var(--text-muted);">
+                Loading audit trail...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="vault-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ChronoLedger Vault</strong> &mdash; Public Cryptographic Verification Authority.
+      </div>
+      <div>
+        Proof calculations executed via RFC 6962 and WebCrypto. Zero private data transmitted.
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Client Scripts -->
+  <script type="module" src="/js/vault-app.js"></script>
+</body>
+</html>

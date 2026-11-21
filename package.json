@@ -1,0 +1,27 @@
+{
+  "name": "chronoledger-vault",
+  "version": "1.0.0",
+  "description": "ChronoLedger Cryptographic Notary & Audit Vault with Native Crypto & Merkle Proofs",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test/merkle.test.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "notary",
+    "merkle-tree",
+    "cryptography",
+    "sha256",
+    "ed25519",
+    "audit-vault",
+    "blockchain",
+    "zero-knowledge"
+  ],
+  "author": "ChronoLedger Core Architecture Team",
+  "license": "MIT"
+}

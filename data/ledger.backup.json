@@ -1,0 +1,291 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-11-21T21:04:43.983Z",
+  "blocks": [
+    {
+      "index": 0,
+      "timestamp": "2026-01-01T00:00:00.000Z",
+      "previousHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "merkleRoot": "3a876ed739a1f21434842d5799b6f52d16ee6a98c6fac67f9c58329838a40149",
+      "blockHash": "c35e1a2e918e671ea1707e6d436319f5e66e53e8cc67deba1f5651f5f460b409",
+      "sealed": true,
+      "transactions": [
+        {
+          "id": "tx_genesis_0",
+          "fileName": "chrono_genesis_manifest.json",
+          "fileSize": 420,
+          "mimeType": "application/json",
+          "sha256": "3caca4312e8b0a8452383e23dd4ec49d085b8aaa4a9ae4e2675389878d72dcd8",
+          "sha512": "01f20b9c647ce2dd065dded47aa2bf6de489b3c26e94ffc040b07507d9fe777bc574ed008eaa697d31f06e21d6d29dd2a47835757f25c5ae6372ccabb386f2a5",
+          "metadata": {
+            "title": "ChronoLedger Vault Genesis Protocol",
+            "notary": "ChronoLedger System Core",
+            "jurisdiction": "Global Immutable Decentralized Time-Stamp Notary",
+            "notes": "Genesis notary anchor initialized."
+          },
+          "blockNumber": 0,
+          "leafIndex": 0,
+          "timestamp": "2026-01-01T00:00:00.000Z",
+          "certificate": {
+            "certificateId": "CLV-2026-4F09CA2EBF2F",
+            "version": "1.0.0",
+            "authority": {
+              "name": "ChronoLedger Cryptographic Notary Authority",
+              "algorithm": "Ed25519",
+              "keyFingerprint": "1f3812ffaedeb8e6b80f43a897b34c777af35a76e7e819dae41e2b04041b6463"
+            },
+            "issuedAt": "2026-11-21T05:16:06.374Z",
+            "document": {
+              "sha256": "3caca4312e8b0a8452383e23dd4ec49d085b8aaa4a9ae4e2675389878d72dcd8",
+              "sha512": "01f20b9c647ce2dd065dded47aa2bf6de489b3c26e94ffc040b07507d9fe777bc574ed008eaa697d31f06e21d6d29dd2a47835757f25c5ae6372ccabb386f2a5",
+              "fileName": "chrono_genesis_manifest.json",
+              "fileSize": 420,
+              "mimeType": "application/json",
+              "metadata": {
+                "title": "ChronoLedger Vault Genesis Protocol",
+                "notary": "ChronoLedger System Core",
+                "jurisdiction": "Global Immutable Decentralized Time-Stamp Notary",
+                "notes": "Genesis notary anchor initialized."
+              }
+            },
+            "merkleProof": {
+              "leafIndex": 0,
+              "leafHash": "3a876ed739a1f21434842d5799b6f52d16ee6a98c6fac67f9c58329838a40149",
+              "rootHash": "3a876ed739a1f21434842d5799b6f52d16ee6a98c6fac67f9c58329838a40149",
+              "proofLength": 0,
+              "proof": []
+            },
+            "block": {
+              "blockNumber": 0,
+              "blockHash": "c35e1a2e918e671ea1707e6d436319f5e66e53e8cc67deba1f5651f5f460b409",
+              "previousBlockHash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "timestamp": "2026-01-01T00:00:00.000Z"
+            },
+            "signature": {
+              "algorithm": "Ed25519",
+              "format": "hex",
+              "value": "660819d5cec93a24da466f5a5bee0bbf4bae930f1f489b82dbfcb35acc56dd5080a0fbacc04a7b29a263468ed4d50447060d0de8b017a85d508619f1c7e3a30e",
+              "payloadHash": "dab6768d06013565ba6abbf9951a8f2e3e874cd198ad6b429f0cbf91b217feb8"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "activeBlock": {
+    "index": 1,
+    "timestamp": "2026-11-21T05:16:06.376Z",
+    "previousHash": "c35e1a2e918e671ea1707e6d436319f5e66e53e8cc67deba1f5651f5f460b409",
+    "merkleRoot": "4d6dd914c94b8d3080b20692629a58e3c7a1e93a8fac418eb0bc23b833e53e69",
+    "blockHash": "77a697bd75fe97ef3fe955c594bc76e3fcdae111e305830b4cb9f065f807ee7b",
+    "sealed": false,
+    "transactions": [
+      {
+        "id": "tx_1795238166383_e71414df",
+        "fileName": "NDA_Acme_Corp.pdf",
+        "fileSize": 45012,
+        "mimeType": "application/pdf",
+        "sha256": "ce12a4c37bd9b0bb86611ad796051f59dbc390a6ce80b9db0e509ce4236cd36d",
+        "sha512": null,
+        "metadata": {
+          "signer": "Alice Smith",
+          "department": "Legal"
+        },
+        "blockNumber": 1,
+        "leafIndex": 0,
+        "timestamp": "2026-11-21T05:16:06.383Z",
+        "certificate": {
+          "certificateId": "CLV-2026-9174CA5C85E6",
+          "version": "1.0.0",
+          "authority": {
+            "name": "ChronoLedger Cryptographic Notary Authority",
+            "algorithm": "Ed25519",
+            "keyFingerprint": "1f3812ffaedeb8e6b80f43a897b34c777af35a76e7e819dae41e2b04041b6463"
+          },
+          "issuedAt": "2026-11-21T05:22:43.070Z",
+          "document": {
+            "sha256": "ce12a4c37bd9b0bb86611ad796051f59dbc390a6ce80b9db0e509ce4236cd36d",
+            "sha512": null,
+            "fileName": "NDA_Acme_Corp.pdf",
+            "fileSize": 45012,
+            "mimeType": "application/pdf",
+            "metadata": {
+              "signer": "Alice Smith",
+              "department": "Legal"
+            }
+          },
+          "merkleProof": {
+            "leafIndex": 0,
+            "leafHash": "5f4d3967052d8960bcfed5bb76f0e483369a6c820d44904c1f383520d717aa86",
+            "rootHash": "4d6dd914c94b8d3080b20692629a58e3c7a1e93a8fac418eb0bc23b833e53e69",
+            "proofLength": 2,
+            "proof": [
+              {
+                "layerIndex": 0,
+                "position": "right",
+                "hash": "2380be6989cea9b46ceaf38320ab90cc64ca07f6269697466351b7f74629cac5"
+              },
+              {
+                "layerIndex": 1,
+                "position": "right",
+                "hash": "46feb67dc82f50fe2ffa221875d08d8df267baf8d501f1522f70d23826f1169f"
+              }
+            ]
+          },
+          "block": {
+            "blockNumber": 1,
+            "blockHash": "77a697bd75fe97ef3fe955c594bc76e3fcdae111e305830b4cb9f065f807ee7b",
+            "previousBlockHash": "c35e1a2e918e671ea1707e6d436319f5e66e53e8cc67deba1f5651f5f460b409",
+            "timestamp": "2026-11-21T05:16:06.376Z"
+          },
+          "signature": {
+            "algorithm": "Ed25519",
+            "format": "hex",
+            "value": "58e2e002efe0d3cdaaa96a54a872a7ada93ac34f64d9e2576b4467f12266c8fbb542190bbee016c47aa27a9b7eb7d196938903113fd2c2d6e4891cd6c3562201",
+            "payloadHash": "30cd3ecda6955e83e95cc82ed01640f719655b6c31ee14f42d52cb2e8bae82e1"
+          }
+        }
+      },
+      {
+        "id": "tx_1795238166403_325d294f",
+        "fileName": "Financial_Q3_Report.xlsx",
+        "fileSize": 128900,
+        "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "sha256": "41e0f264b3884a5e0e6bf5e8c9f7fe45d06f2e6849cc3ee4afe456a23317d640",
+        "sha512": null,
+        "metadata": {
+          "signer": "Bob CFO",
+          "department": "Finance"
+        },
+        "blockNumber": 1,
+        "leafIndex": 1,
+        "timestamp": "2026-11-21T05:16:06.403Z",
+        "certificate": {
+          "certificateId": "CLV-2026-E7C6EF216E55",
+          "version": "1.0.0",
+          "authority": {
+            "name": "ChronoLedger Cryptographic Notary Authority",
+            "algorithm": "Ed25519",
+            "keyFingerprint": "1f3812ffaedeb8e6b80f43a897b34c777af35a76e7e819dae41e2b04041b6463"
+          },
+          "issuedAt": "2026-11-21T05:22:43.072Z",
+          "document": {
+            "sha256": "41e0f264b3884a5e0e6bf5e8c9f7fe45d06f2e6849cc3ee4afe456a23317d640",
+            "sha512": null,
+            "fileName": "Financial_Q3_Report.xlsx",
+            "fileSize": 128900,
+            "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "metadata": {
+              "signer": "Bob CFO",
+              "department": "Finance"
+            }
+          },
+          "merkleProof": {
+            "leafIndex": 1,
+            "leafHash": "2380be6989cea9b46ceaf38320ab90cc64ca07f6269697466351b7f74629cac5",
+            "rootHash": "4d6dd914c94b8d3080b20692629a58e3c7a1e93a8fac418eb0bc23b833e53e69",
+            "proofLength": 2,
+            "proof": [
+              {
+                "layerIndex": 0,
+                "position": "left",
+                "hash": "5f4d3967052d8960bcfed5bb76f0e483369a6c820d44904c1f383520d717aa86"
+              },
+              {
+                "layerIndex": 1,
+                "position": "right",
+                "hash": "46feb67dc82f50fe2ffa221875d08d8df267baf8d501f1522f70d23826f1169f"
+              }
+            ]
+          },
+          "block": {
+            "blockNumber": 1,
+            "blockHash": "77a697bd75fe97ef3fe955c594bc76e3fcdae111e305830b4cb9f065f807ee7b",
+            "previousBlockHash": "c35e1a2e918e671ea1707e6d436319f5e66e53e8cc67deba1f5651f5f460b409",
+            "timestamp": "2026-11-21T05:16:06.376Z"
+          },
+          "signature": {
+            "algorithm": "Ed25519",
+            "format": "hex",
+            "value": "ea3cf967970b1087636da5f9e838d141b0c37c76c933abe69ba4ed8c8c904961eacfad67942ca85eb1d25d6b48e5639a71c8e3fc7dcd175e71751106784f6806",
+            "payloadHash": "fe5d9ec5939224d60e9e6a63ef82cacfc48ae0652a015848576b69380e92950a"
+          }
+        }
+      },
+      {
+        "id": "tx_1795238563070_36894d83",
+        "fileName": "Genesis_Test_Document.pdf",
+        "fileSize": 2048,
+        "mimeType": "application/pdf",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha512": null,
+        "metadata": {
+          "title": "Master Service Agreement 2026",
+          "author": "Lead Architect",
+          "organization": "Independent",
+          "jurisdiction": "Singapore",
+          "notes": "",
+          "tags": []
+        },
+        "blockNumber": 1,
+        "leafIndex": 2,
+        "timestamp": "2026-11-21T05:22:43.070Z",
+        "certificate": {
+          "certificateId": "CLV-2026-98EF38250A2C",
+          "version": "1.0.0",
+          "authority": {
+            "name": "ChronoLedger Cryptographic Notary Authority",
+            "algorithm": "Ed25519",
+            "keyFingerprint": "1f3812ffaedeb8e6b80f43a897b34c777af35a76e7e819dae41e2b04041b6463"
+          },
+          "issuedAt": "2026-11-21T05:22:43.073Z",
+          "document": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "sha512": null,
+            "fileName": "Genesis_Test_Document.pdf",
+            "fileSize": 2048,
+            "mimeType": "application/pdf",
+            "metadata": {
+              "title": "Master Service Agreement 2026",
+              "author": "Lead Architect",
+              "organization": "Independent",
+              "jurisdiction": "Singapore",
+              "notes": "",
+              "tags": []
+            }
+          },
+          "merkleProof": {
+            "leafIndex": 2,
+            "leafHash": "4e59bf27372b1304bc0b137d1be9d566ad58b154b6a6b5778af7f414b1d4b84c",
+            "rootHash": "4d6dd914c94b8d3080b20692629a58e3c7a1e93a8fac418eb0bc23b833e53e69",
+            "proofLength": 2,
+            "proof": [
+              {
+                "layerIndex": 0,
+                "position": "right",
+                "hash": "4e59bf27372b1304bc0b137d1be9d566ad58b154b6a6b5778af7f414b1d4b84c"
+              },
+              {
+                "layerIndex": 1,
+                "position": "left",
+                "hash": "6672290a705f7fbbb4cdce6effa9df8634377010ded78dda54cd80c408d1acd0"
+              }
+            ]
+          },
+          "block": {
+            "blockNumber": 1,
+            "blockHash": "77a697bd75fe97ef3fe955c594bc76e3fcdae111e305830b4cb9f065f807ee7b",
+            "previousBlockHash": "c35e1a2e918e671ea1707e6d436319f5e66e53e8cc67deba1f5651f5f460b409",
+            "timestamp": "2026-11-21T05:16:06.376Z"
+          },
+          "signature": {
+            "algorithm": "Ed25519",
+            "format": "hex",
+            "value": "fa8b6380607ce3180289c458b819c86d3bd95e4871690b461b463393105ce457b519a5b399c736c6c131dc7a8c14c6acd66d2876263144f3ec5e3d1b9f952406",
+            "payloadHash": "8f8215cf09b56266037413e8ce28328f767e4f7bc3a4b7b6f47896c405d4bdba"
+          }
+        }
+      }
+    ]
+  }
+}

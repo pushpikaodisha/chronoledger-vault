@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptographic Audit & Ledger | ChronoLedger Vault</title>
+  <link rel="stylesheet" href="/css/vault.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffbe0b' stroke-width='2'><rect x='2' y='7' width='20' height='14' rx='2' ry='2'/><path d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'/></svg>">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="vault-header">
+    <div class="container header-inner">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">ChronoLedger</span>
+          <span class="brand-badge">Audit Center</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item"><a href="/">Vault Notary</a></li>
+          <li class="nav-item"><a href="/verify">Instant Verify</a></li>
+          <li class="nav-item active"><a href="/audit">Audit & Ledger</a></li>
+        </ul>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="network-pill" id="networkPill">
+          <span class="pulse-dot" id="networkPulseDot"></span>
+          <span id="networkStatusText">HEIGHT: #1 (SYNCED)</span>
+        </div>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container" style="flex: 1; padding-top: 1rem; padding-bottom: 3rem;">
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>🔍 DEEP FORENSIC AUDITING</span>
+          <span>&bull;</span>
+          <span>CRYPTOGRAPHIC TAMPER DETECTION</span>
+        </div>
+        <h1 class="hero-title">Ledger Audit & Forensic Chain Timeline</h1>
+        <p class="hero-desc">
+          Inspect the chronological chain of Merkle blocks from Genesis #0 to the present tip. Run automated integrity audits to mathematically recompute every hash pointer, Merkle root, and Ed25519 digital signature.
+        </p>
+      </div>
+    </section>
+
+    <!-- Audit Action Control Ribbon -->
+    <div class="card" style="margin-bottom: 2rem; background: rgba(14, 23, 42, 0.7);">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Cryptographic Integrity & Forensic Lab</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Test and prove the mathematical resilience of the ChronoLedger Vault in real-time.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button id="runAuditBtn" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Run Full Cryptographic Deep Audit
+          </button>
+          <button id="simulateTamperBtn" class="btn btn-danger" title="Simulate an intentional 1-bit tampering to witness the alarm">
+            Simulate Bit-Flip Attack
+          </button>
+          <button id="restoreLedgerBtn" class="btn btn-emerald" title="Restore ledger to clean cryptographic state">
+            Restore Ledger
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Deep Audit Report Container -->
+    <div id="auditReportContainer" style="margin-bottom: 2.5rem;">
+      <div class="card text-center" style="padding: 2.5rem;">
+        <span class="pulse-dot" style="margin: 0 auto 1rem;"></span>
+        <h3>Initializing Deep Cryptographic Audit...</h3>
+      </div>
+    </div>
+
+    <!-- Blockchain Timeline Section -->
+    <section>
+      <div class="card-header">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Chronological Block Chain Timeline
+        </h2>
+        <span class="badge-tag sealed">GENESIS &rarr; TIP</span>
+      </div>
+
+      <!-- Timeline List -->
+      <div class="timeline-list" id="blockTimelineList">
+        <div class="card text-center" style="padding: 2rem;">
+          <p style="color: var(--text-muted);">Loading blockchain blocks...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forensic Principles Card -->
+    <section class="card" style="margin-top: 2.5rem;">
+      <div class="card-header">
+        <h3 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          Why ChronoLedger is Mathematically Tamper-Evident
+        </h3>
+      </div>
+      <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+        <p style="margin-bottom: 0.75rem;">
+          In traditional databases, an administrator or adversary can silently alter rows without detection. In ChronoLedger:
+        </p>
+        <ul style="padding-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>Merkle Root Dependency:</strong> If a single byte in any document is altered, its SHA-256 shifts. That breaks the RFC 6962 leaf hash, which cascades up the tree and produces a completely different Merkle Root.</li>
+          <li><strong>Block Hash Pointer Chaining:</strong> Each sealed block header embeds the hash of the preceding block (<code>previousHash</code>). Changing any past block invalidates all downstream block hashes.</li>
+          <li><strong>Asymmetric Signatures:</strong> Every certificate and block header is digitally signed by the Notary Authority using an Ed25519 private key. Changing the payload causes signature verification to fail immediately.</li>
+        </ul>
+        <p>
+          You can test this yourself by clicking <strong>"Simulate Bit-Flip Attack"</strong> above: the deep audit will pinpoint the exact block and modified transaction instantly!
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="vault-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ChronoLedger Vault</strong> &mdash; Ledger Audit & Cryptographic Forensic Center.
+      </div>
+      <div>
+        Full ledger audit engine built with Node.js 22 native crypto and Merkle tree recursion.
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Client Scripts -->
+  <script type="module" src="/js/vault-app.js"></script>
+</body>
+</html>
