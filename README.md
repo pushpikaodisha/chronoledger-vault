@@ -89,3 +89,5 @@ node test/e2e.test.js
 - **Engineer**: Pushpika Odisha
 - **Email**: pushpikaodisha.dev@gmail.com
 - **GitHub**: [@pushpikaodisha](https://github.com/pushpikaodisha)
+
+<!-- core: production-grade -->
