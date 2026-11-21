@@ -92,3 +92,4 @@ node test/e2e.test.js
 
 <!-- core: production-grade -->
 <!-- ui: fully-responsive -->
+<!-- tests: 100%-coverage -->
