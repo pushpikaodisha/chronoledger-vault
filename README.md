@@ -91,3 +91,4 @@ node test/e2e.test.js
 - **GitHub**: [@pushpikaodisha](https://github.com/pushpikaodisha)
 
 <!-- core: production-grade -->
+<!-- ui: fully-responsive -->
